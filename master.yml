@@ -1,0 +1,14 @@
+---
+- hosts: webserver
+  user: ansi 
+  become: yes
+  connection: ssh
+  tasks: 
+   - name: docker 
+     command: cd /opt/docker
+   - name: docker1
+     command: docker build -t qayy .
+   - name: docker2 
+     command: docker run -d --name qayy -p 8090:8080 qayy
+     
+    
